@@ -4,16 +4,20 @@ import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TabHost;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Resources res = getResources();
+        //Resources res = getResources();
 
         TabHost tabs = (TabHost) findViewById(android.R.id.tabhost);
         tabs.setup();
@@ -38,7 +42,28 @@ public class MainActivity extends AppCompatActivity {
         tabs.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             public void onTabChanged(String s) {
                 Log.i("AndroidTabsDemo", "Pulsada pestaña: " + s);
+                MenuItem i = menu.findItem(R.id.otro);
+
+                switch (s){
+                    case "tab1":
+                        i.setIcon(R.drawable.ic_llamadas);
+                        break;
+                    case "tab2":
+                        i.setIcon(R.drawable.ic_chats);
+                        break;
+                    case "tab3":
+                        i.setIcon(R.drawable.ic_contactos);
+                        break;
+                }
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        this.menu = menu;
+
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
     }
 }

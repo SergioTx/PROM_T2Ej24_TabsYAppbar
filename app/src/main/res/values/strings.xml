@@ -6,4 +6,6 @@
     <string name="llamadas">llamadas</string>
     <string name="chats">chats</string>
     <string name="contactos">contactos</string>
+    <string name="otros">otros</string>
+    <string name="buscar">buscar</string>
 </resources>
