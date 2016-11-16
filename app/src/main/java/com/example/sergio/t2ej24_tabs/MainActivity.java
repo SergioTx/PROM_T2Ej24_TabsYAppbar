@@ -1,20 +1,15 @@
 package com.example.sergio.t2ej24_tabs;
 
-import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ListViewCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TabHost;
 
 public class MainActivity extends AppCompatActivity {
 
     private Menu menu;
-    private final String[] datos = {"opcion1","opcion2","opcion3","opcion1","opcion2","opcion3","opcion1","opcion2","opcion3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +56,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //listview
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,datos);
-        ListView list = (ListView) findViewById(R.id.listLlamadas);
-        list.setAdapter(adapter);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
